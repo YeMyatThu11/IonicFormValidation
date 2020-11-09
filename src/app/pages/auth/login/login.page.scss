@@ -1,0 +1,23 @@
+.error-message {
+    color: var(--ion-color-danger);
+}
+ion-input{
+    border: solid 2px #f4f4f4;
+}
+ ion-header{
+    --ion-background-color: #02A87B;
+    color: #fff;
+}
+.password-input{
+    border: solid 2px #f4f4f4;
+    ion-input{
+        border: none;
+    }
+    
+}
+.link-btn{
+    ion-button{
+        background: none!important;
+        color: #3498db;
+    }
+}
