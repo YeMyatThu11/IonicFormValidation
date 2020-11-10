@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import {LoginDataService} from '../../../login-data-service.service';
 @Component({
   selector: "app-login",
   templateUrl: "./login.page.html",
@@ -125,7 +126,7 @@ export class LoginPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router,private lgDataUser:LoginDataService) {
     this.loginFormData = this.formBuilder.group(
       {
         name: ["", [Validators.required, Validators.maxLength(20)]],
@@ -175,7 +176,9 @@ export class LoginPage implements OnInit {
     console.log(this.loginFormData.value);
     this.router.navigate(["home"]);
   }
-  ngOnInit() { }
+  ngOnInit() { 
+    this.lgDataUser.addNewUser({"name":"kg kg","password":"123456"});
+  }
   togglePassword(): void {
     this.showPassword = !this.showPassword;
     this.showPassword
